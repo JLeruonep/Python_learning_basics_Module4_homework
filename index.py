@@ -1,10 +1,9 @@
 from dataset import users, countries
 from pprint import pprint
 
-
-pprint(users)
+# pprint(users)
 # pprint(countries)
-
+#   Point 1
 # Вариант c алгоритмом:
 # users_wrong_passwords = []
 #
@@ -17,7 +16,7 @@ pprint(users)
 # users_wrong_passwords = [{'name': user['name'], 'mail': user['mail']} for user in users
 #                          if user['password'].isdigit()]
 
-
+#   Point 2
 # Вариант с алгоритмом:
 # Единственное - есть вопрос: правильно ли я достал 'cars'? На первый взгляд все работает,
 # но если в списке будет больше двух словарей - тогда имя друга в выборку не попадет.
@@ -34,3 +33,13 @@ pprint(users)
 #              if 'friends' in friend and friend['friends'][0]['sex'] == 'F' and 'cars' in friend['friends'][-1]]
 #
 # print(girls_drivers)
+
+#   Point 3
+max_value_salary = 0
+max_salary = {}  # 'occupation' : 'salary'
+# if 'friends' in users:
+for friend in users['friends']:
+    print(friend)
+    if friend['job']['salary'] > max_value_salary:
+        max_salary = {'occupation': friend['job']['occupation'], 'salary': friend['job']['salary']}
+print(max_salary)
