@@ -2,7 +2,7 @@ import http.client
 import json
 
 
-RANDOM_DATA = False
+RANDOM_DATA = True
 
 
 conn = http.client.HTTPSConnection("pumpskill.ru")
