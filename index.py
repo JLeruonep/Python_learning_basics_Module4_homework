@@ -12,7 +12,7 @@ from dataset import users, countries
 
 # Генератор:
 # Формируем словарь по ключам имени и почты, если пароль пользователя состоит только из чисел
-users_wrong_passwords = [{'name': user['name'], 'mail': user['mail']} for user in users
+users_wrong_password = [{'name': user['name'], 'mail': user['mail']} for user in users
                          if user['password'].isdigit()]
 
 #   Point 2
