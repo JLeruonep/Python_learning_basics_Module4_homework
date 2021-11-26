@@ -1,5 +1,7 @@
 from dataset import users, countries
+# from pprint import pprint
 
+# pprint(users)
 #   Point 1
 
 # Вариант c алгоритмом:
@@ -29,9 +31,8 @@ users_wrong_password = [{'name': user['name'], 'mail': user['mail']} for user in
 # Генератор:
 # Получаем значение 'name' из полученного массива значений 'friends'
 # При условии, что 'friends' вообще есть в словаре, пол друга женский и друг владел машиной
-girls_drivers = [friend.get('friends')[0].get('name') for friend in users
+girls_drivers = [friend.get('friends')[-1].get('name') for friend in users
                  if 'friends' in friend and friend['friends'][0]['sex'] == 'F' and 'cars' in friend['friends'][-1]]
-#
 
 #   Point 3
 
