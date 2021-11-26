@@ -1,6 +1,5 @@
 from dataset import users, countries
 
-
 #   Point 1
 
 # Вариант c алгоритмом:
@@ -13,7 +12,7 @@ from dataset import users, countries
 # Генератор:
 # Формируем словарь по ключам имени и почты, если пароль пользователя состоит только из чисел
 users_wrong_password = [{'name': user['name'], 'mail': user['mail']} for user in users
-                         if user['password'].isdigit()]
+                        if user['password'].isdigit()]
 
 #   Point 2
 
@@ -85,4 +84,3 @@ for user in users:
                     user_delete = True
     if user_delete is True:
         user.clear()
-
