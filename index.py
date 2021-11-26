@@ -35,13 +35,13 @@ users_wrong_password = [{'name': user['name'], 'mail': user['mail']} for user in
 #                  if 'friends' in friend and friend['friends'][-1]['sex'] == 'F' and 'cars' in friend['friends'][-1]]
 
 
-test_girls_drivers = []
+girls_drivers = []
 for user in users:
     friends = user.get('friends', [])
     for friend in friends:
         if friend['sex'] == 'F' and friend.get('cars', None):
-            test_girls_drivers.append(friend['name'])
-print(test_girls_drivers)
+            girls_drivers.append(friend['name'])
+print(girls_drivers)
 
 # expected.sort()
 # girls_drivers.sort()
