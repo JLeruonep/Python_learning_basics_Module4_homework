@@ -1,28 +1,27 @@
 from dataset import users, countries
-from pprint import pprint
 
-countries = ['Canada', 'Tokyo']
-# pprint(users)
-pprint(countries)
+
 #   Point 1
+
 # Вариант c алгоритмом:
 # users_wrong_passwords = []
-#
+
 # for user in users:
 #    if user['password'].isdigit():
 #        users_wrong_passwords.append({'name': user['name'], 'mail': user['mail']})
 
 # Генератор:
 # Формируем словарь по ключам имени и почты, если пароль пользователя состоит только из чисел
-# users_wrong_passwords = [{'name': user['name'], 'mail': user['mail']} for user in users
-#                          if user['password'].isdigit()]
+users_wrong_passwords = [{'name': user['name'], 'mail': user['mail']} for user in users
+                         if user['password'].isdigit()]
 
 #   Point 2
-# Вариант с алгоритмом:
+
 # Единственное - есть вопрос: правильно ли я достал 'cars'? На первый взгляд все работает,
 # но если в списке будет больше двух словарей - тогда имя друга в выборку не попадет.
 # Другого способа как подобраться к 'cars' в т.ч. с использованием метода get() я не придумал
-# TODO Попробовать: "list".index("искомое")
+
+# Вариант с алгоритмом:
 # girls_drivers = []
 # for friend in users:
 #     if 'friends' in friend and friend['friends'][0]['sex'] == 'F' and 'cars' in friend['friends'][-1]:
@@ -31,66 +30,59 @@ pprint(countries)
 # Генератор:
 # Получаем значение 'name' из полученного массива значений 'friends'
 # При условии, что 'friends' вообще есть в словаре, пол друга женский и друг владел машиной
-# girls_drivers = [friend.get('friends')[0].get('name') for friend in users
-#              if 'friends' in friend and friend['friends'][0]['sex'] == 'F' and 'cars' in friend['friends'][-1]]
+girls_drivers = [friend.get('friends')[0].get('name') for friend in users
+             if 'friends' in friend and friend['friends'][0]['sex'] == 'F' and 'cars' in friend['friends'][-1]]
 #
-# print(girls_drivers)
 
 #   Point 3
-# max_salary = {
-#     'occupation': 'none',
-#     'salary': 0
-# }
-# for user in users:
-#     if 'friends' in user:  # Проверяем, чтобы в списке лежал словарь с ключом 'friends'
-#         if user['friends'][0]['job']['salary'] > max_salary['salary']:
-#             max_salary = {'occupation': user['friends'][0]['job']['occupation'],
-#                           'salary': user['friends'][0]['job']['salary']}
-# print(max_salary)
+
+max_salary = {
+    'occupation': 'none',
+    'salary': 0
+}
+for user in users:
+    if 'friends' in user:  # Проверяем, чтобы в списке лежал словарь с ключом 'friends'
+        if user['friends'][0]['job']['salary'] > max_salary['salary']:
+            max_salary = {'occupation': user['friends'][0]['job']['occupation'],
+                          'salary': user['friends'][0]['job']['salary']}
 
 #   Point 4
 
-# sum_salaries = {
-#
-# }
+sum_salaries = {
 
-# for user in users:
-#     if 'friends' in user:
-#         friends_salaries = 0
-#         for friend in user['friends']:
-#             friends_salaries += friend['job']['salary']
-#         sum_salaries[user['name']] = friends_salaries
-# print(sum_salaries)
-# vip_user = max(sum_salaries, key=sum_salaries.get)
-# print(vip_user)
+}
+
+for user in users:
+    if 'friends' in user:
+        friends_salaries = 0
+        for friend in user['friends']:
+            friends_salaries += friend['job']['salary']
+        sum_salaries[user['name']] = friends_salaries
+vip_user = max(sum_salaries, key=sum_salaries.get)
 
 #   Point 5
 
-# friends_with_cars = 0
-# flights_count = 0
+friends_with_cars = 0
+flights_count = 0
 
 # Для каждого пользователя смотрим, чтобы у него были друзья, а у друзей - машины.
 # Считаем количество друзей с машинами, считаем сколько было полетов у таких друзей
-# for user in users:
-#     if 'friends' in user and 'cars' in user['friends'][-1]:
-#         friends_with_cars += 1
-#         if 'flights' in user['friends'][-1]:
-#             flights_count += len(user['friends'][-1]['flights'])
-# avg_flights = round(flights_count / friends_with_cars, 5)
+for user in users:
+    if 'friends' in user and 'cars' in user['friends'][-1]:
+        friends_with_cars += 1
+        if 'flights' in user['friends'][-1]:
+            flights_count += len(user['friends'][-1]['flights'])
+avg_flights = round(flights_count / friends_with_cars, 5)
 
 #   Point 6
 
 for user in users:
-    print(user)
     user_delete = False
     if 'friends' in user and 'flights' in user['friends'][-1]:
-        for flight in user['friends'][-1]:
-            print(flight)
-            # print(user['friends'][-1]['flights'])
+        for flight in user['friends'][-1]['flights']:
             for country in countries:
-                if user['friends'][-1]['flights'][0]['country'] == country:
-                    #TODO нужно как-то итерироваться по вложенным в список словарям, чтобы перебирать ключи 'counries'
+                if country in flight.values():
                     user_delete = True
     if user_delete is True:
-        del user
-pprint(users)
+        user.clear()
+

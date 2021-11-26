@@ -2,7 +2,7 @@ import http.client
 import json
 from pprint import pprint
 
-RANDOM_DATA = False  # Если True - данные каждый раз будут разными
+RANDOM_DATA = True  # Если True - данные каждый раз будут разными
 
 
 conn = http.client.HTTPSConnection('pumpskill.ru')
