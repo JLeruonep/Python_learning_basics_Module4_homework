@@ -32,7 +32,7 @@ users_wrong_password = [{'name': user['name'], 'mail': user['mail']} for user in
 girls_drivers = [friend.get('friends')[0].get('name') for friend in users
                  if 'friends' in friend and friend['friends'][0]['sex'] == 'F' and 'cars' in friend['friends'][-1]]
 #
-print(girls_drivers)
+
 #   Point 3
 
 max_salary = {
