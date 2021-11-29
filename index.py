@@ -6,16 +6,16 @@ from pprint import pprint
 #   Point 1
 
 # Вариант c алгоритмом:
-# users_wrong_password = []
+users_wrong_password = []
 
-# for user in users:
-#     if user['password'].isdigit():
-#         users_wrong_password.append({'name': user['name'], 'mail': user['mail']})
+for user in users:
+    if user['password'].isdigit():
+        users_wrong_password.append({'name': user['name'], 'mail': user['mail']})
 
-# Генератор:
-# Формируем словарь по ключам имени и почты, если пароль пользователя состоит только из чисел
-users_wrong_password = [{'name': user['name'], 'mail': user['mail']} for user in users
-                        if user['password'].isdigit()]
+# # Генератор:
+# # Формируем словарь по ключам имени и почты, если пароль пользователя состоит только из чисел
+# users_wrong_password = [{'name': user['name'], 'mail': user['mail']} for user in users
+#                         if user['password'].isdigit()]
 
 #   Point 2
 
