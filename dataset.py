@@ -3,7 +3,7 @@ import json
 from pprint import pprint
 
 
-RANDOM_DATA = False
+RANDOM_DATA = True
 
 
 conn = http.client.HTTPSConnection("pumpskill.ru")

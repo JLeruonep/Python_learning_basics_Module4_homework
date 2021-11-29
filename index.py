@@ -23,19 +23,20 @@ for user in users:
 # Другого способа как подобраться к 'cars' в т.ч. с использованием метода get() я не придумал
 
 # Вариант с алгоритмом:
-girls_drivers = []
-for user in users:
-    friends = user.get('friends', [])
-    for friend in friends:
-        if friend['sex'] == 'F' and friend.get('cars'):
-            girls_drivers.append(friend['name'])
+# girls_drivers = []
+# for user in users:
+#     friends = user.get('friends', [])
+#     for friend in friends:
+#         if friend['sex'] == 'F' and friend.get('cars'):
+#             girls_drivers.append(friend['name'])
+#
 
-print(girls_drivers)
 # Генератор:
 # Получаем значение 'name' из полученного массива значений 'friends'
 # При условии, что 'friends' вообще есть в словаре, пол друга женский и друг владел машиной
-# girls_drivers = [friend.get('friends')[-1].get('name') for friend in users
-#                  if 'friends' in friend and friend['friends'][-1]['sex'] == 'F' and 'cars' in friend['friends'][-1]]
+
+girls_drivers = [friend['name'] for user in users for friend in user.get('friends', [])
+                 if friend['sex'] == 'F' and friend.get('cars')]
 
 #   Point 3
 
