@@ -1,7 +1,6 @@
 from dataset import users, countries
 from pprint import pprint
 
-
 # pprint(users)
 #   Point 1
 
@@ -31,13 +30,14 @@ for user in users:
         if friend['sex'] == 'F' and friend.get('cars'):
             girls_drivers.append(friend['name'])
 
-
+print(girls_drivers)
 # Генератор:
 # Получаем значение 'name' из полученного массива значений 'friends'
 # При условии, что 'friends' вообще есть в словаре, пол друга женский и друг владел машиной
 # girls_drivers = [friend.get('friends')[-1].get('name') for friend in users
 #                  if 'friends' in friend and friend['friends'][-1]['sex'] == 'F' and 'cars' in friend['friends'][-1]]
-
+girls_drivers = [friend[:]['name'] for friend in [user.get('friends', []) for user in users]]
+print(girls_drivers)
 #   Point 3
 
 max_salary = {
