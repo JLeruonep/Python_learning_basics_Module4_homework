@@ -29,8 +29,9 @@ for user in users:
 #     for friend in friends:
 #         if friend['sex'] == 'F' and friend.get('cars'):
 #             girls_drivers.append(friend['name'])
-#
-
+# #
+# girls_drivers.sort()
+# print(girls_drivers)
 # Генератор:
 # Получаем значение 'name' из полученного массива значений 'friends'
 # При условии, что 'friends' вообще есть в словаре, пол друга женский и друг владел машиной
