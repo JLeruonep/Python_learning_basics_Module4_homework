@@ -68,14 +68,12 @@ flights_count = 0
 for user in users:
     friends = user.get('friends', [])
     for friend in friends:
-        if friend.get('cars', []) and friend.get('flights', []):
+        # if friend.get('cars', []) and friend.get('flights', []):
+        cars = friend.get('cars')
+        if cars:
             friends_with_cars += 1
             flights_count += len(friend['flights'])
 
-# if 'friends' in user and 'cars' in user['friends'][-1]:
-#     friends_with_cars += 1
-#     if 'flights' in user['friends'][-1]:
-#         flights_count += len(user['friends'][-1]['flights'])
 avg_flights = round(flights_count / friends_with_cars, 5)
 
 #   Point 6
