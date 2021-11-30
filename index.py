@@ -76,7 +76,7 @@ for user in users:
 #     friends_with_cars += 1
 #     if 'flights' in user['friends'][-1]:
 #         flights_count += len(user['friends'][-1]['flights'])
-# avg_flights = round(flights_count / friends_with_cars, 5)
+avg_flights = round(flights_count / friends_with_cars, 5)
 
 #   Point 6
 
