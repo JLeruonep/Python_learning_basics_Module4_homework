@@ -46,11 +46,14 @@ best_occupation = {
     'salary': 0
 }
 for user in users:
-    if 'friends' in user:  # Проверяем, чтобы в списке лежал словарь с ключом 'friends'
-        if user['friends'][0]['job']['salary'] > best_occupation['salary']:
-            best_occupation = {'occupation': user['friends'][0]['job']['occupation'],
-                          'salary': user['friends'][0]['job']['salary']}
-
+    friends = user.get('friends', [])
+    for friend in friends:
+        if friend['job']['salary'] > best_occupation['salary']:
+            best_occupation = {'occupation': friend['job']['occupation'], 'salary': friend['job']['salary']}
+    # if user['friends'][0]['job']['salary'] > best_occupation['salary']:
+    #         best_occupation = {'occupation': user['friends'][0]['job']['occupation'],
+    #                       'salary': user['friends'][0]['job']['salary']}
+# print(best_occupation)
 #   Point 4
 
 sum_salaries = {
