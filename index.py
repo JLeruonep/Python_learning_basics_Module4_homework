@@ -88,7 +88,7 @@ for user in users:
                     break
             if user_delete:
                 break
-        if user_delete:
-            del users[i]
-        else:
-            i += 1
+    if user_delete:
+        del users[i]
+    else:
+        i += 1
