@@ -72,7 +72,7 @@ for user in users:
         cars = friend.get('cars')
         if cars:
             friends_with_cars += 1
-            # flights_count += len(friend['flights'])
+            flights_count += len(friend.get('flights', []))
 
 avg_flights = round(flights_count / friends_with_cars, 5)
 
