@@ -68,9 +68,7 @@ flights_count = 0
 for user in users:
     friends = user.get('friends', [])
     for friend in friends:
-        # if friend.get('cars', []) and friend.get('flights', []):
-        cars = friend.get('cars')
-        if cars:
+        if friend.get('cars', []):
             friends_with_cars += 1
             flights_count += len(friend.get('flights', []))
 
