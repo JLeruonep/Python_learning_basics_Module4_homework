@@ -63,8 +63,6 @@ vip_user = max(sum_salaries, key=sum_salaries.get)
 friends_with_cars = 0
 flights_count = 0
 
-# Для каждого пользователя смотрим, чтобы у него были друзья, а у друзей - машины.
-# Считаем количество друзей с машинами, считаем сколько было полетов у таких друзей
 for user in users:
     friends = user.get('friends', [])
     for friend in friends:
