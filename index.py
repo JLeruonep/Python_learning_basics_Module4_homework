@@ -41,14 +41,14 @@ girls_drivers = [friend['name'] for user in users for friend in user.get('friend
 
 #   Point 3
 
-max_salary = {
+best_occupation = {
     'occupation': 'none',
     'salary': 0
 }
 for user in users:
     if 'friends' in user:  # Проверяем, чтобы в списке лежал словарь с ключом 'friends'
-        if user['friends'][0]['job']['salary'] > max_salary['salary']:
-            max_salary = {'occupation': user['friends'][0]['job']['occupation'],
+        if user['friends'][0]['job']['salary'] > best_occupation['salary']:
+            best_occupation = {'occupation': user['friends'][0]['job']['occupation'],
                           'salary': user['friends'][0]['job']['salary']}
 
 #   Point 4
