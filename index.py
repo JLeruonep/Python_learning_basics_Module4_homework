@@ -77,9 +77,9 @@ avg_flights = round(flights_count / friends_with_cars, 5)
 #   Point 6
 
 i = 0
-for user in users:
+while i < len(users):
     user_delete = False
-    friends = user.get('friends', [])
+    friends = users[i].get('friends', [])
     for friend in friends:
         for flight in friend.get('flights', []):
             for country in countries:
