@@ -78,10 +78,34 @@ avg_flights = round(flights_count / friends_with_cars, 5)
 
 for user in users:
     user_delete = False
-    if 'friends' in user and 'flights' in user['friends'][-1]:
-        for flight in user['friends'][-1]['flights']:
+    friends = user.get('friends', [])
+    for friend in friends:
+        for flight in friend.get('flights', []):
             for country in countries:
                 if country in flight.values():
                     user_delete = True
+
+    # if 'friends' in user and 'flights' in user['friends'][-1]:
+    #     for flight in user['friends'][-1]['flights']:
+    #         for country in countries:
+    #             if country in flight.values():
+    #                 user_delete = True
     if user_delete is True:
         user.clear()
+
+        # while i < len(users_copy):
+        #     need_remove = False
+        #     friends = users_copy[i].get('friends', [])
+        #     for friend in friends:
+        #         flights = friend.get('flights', [])
+        #         for flight in flights:
+        #             if flight['country'] in countries:
+        #                 need_remove = True
+        #                 break
+        #         if need_remove:
+        #             break
+        #
+        #     if need_remove:
+        #         del users_copy[i]
+        #     else:
+        #         i += 1
