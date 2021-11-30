@@ -5,7 +5,7 @@ from pprint import pprint
 #   Point 1
 
 # Вариант c алгоритмом:
-# users_wrong_password = []
+users_wrong_password = []
 
 for user in users:
     if user['password'].isdigit():
